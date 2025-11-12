@@ -1,0 +1,330 @@
+/* Подключаем шрифты */
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Playfair+Display:ital,wght@0,700;1,400&family=Noto+Sans:wght@400;700&display=swap');
+
+:root {
+    --primary-pink: #ff69b4;
+    /* Ярко-розовый */
+    --secondary-pink: #ffc0cb;
+    /* Светло-розовый */
+    --light-pink: #ffe4e1;
+    /* Очень светло-розовый */
+    --text-dark: #333;
+    --text-light: #fff;
+    --gradient-start: #ffb6c1;
+    /* Нежный розовый */
+    --gradient-end: #ffebcd;
+    /* Очень светлый персиковый */
+}
+
+body {
+    font-family: 'Noto Sans', sans-serif;
+    background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+    color: var(--text-dark);
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+    position: relative;
+    padding: 20px;
+    /* Общий отступ по краям для мобильных */
+    box-sizing: border-box;
+}
+
+.content-wrapper {
+    background-color: rgba(255, 255, 255, 0.9);
+    /* Полупрозрачный белый фон для контента */
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    padding: 40px;
+    max-width: 900px;
+    width: 100%;
+    /* Занимает всю доступную ширину */
+    margin: 0 auto;
+    /* Центрирование */
+    text-align: center;
+    position: relative;
+    z-index: 10;
+    /* Контент поверх сердечек */
+    box-sizing: border-box;
+}
+
+.header {
+    margin-bottom: 40px;
+}
+
+.header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5em;
+    color: var(--primary-pink);
+    margin-bottom: 10px;
+    font-weight: 700;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.header .subtitle {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4em;
+    color: #888;
+    font-style: italic;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    /* Адаптивная сетка */
+    gap: 25px;
+    margin-bottom: 50px;
+}
+
+.gallery-item {
+    background-color: var(--light-pink);
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-item:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 90%;
+    /* Фиксированная высота для всех фото */
+    object-fit: cover;
+    /* Обрезаем, чтобы заполнить */
+    display: block;
+    border-bottom: 5px solid var(--secondary-pink);
+}
+
+.gallery-item .caption {
+    padding: 7px;
+    font-size: 1.15em;
+    color: var(--text-dark);
+    line-height: 1.4;
+    font-style: italic;
+}
+
+/* === Стили для Письма === */
+
+.letter {
+    margin: 50px auto;
+    padding: 30px;
+    max-width: 800px;
+    background-color: #fffaf0;
+    /* Цвет "цветочный белый", имитирует бумагу */
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    text-align: left;
+    /* Выравнивание текста по левому краю, как в письме */
+    box-sizing: border-box;
+    /* Важно для адаптивности */
+}
+
+.letter-content {
+    padding: 10px 20px;
+}
+
+.letter-greeting {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2em;
+    color: var(--primary-pink);
+    margin-bottom: 25px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.letter-body p {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    /* Классический шрифт для письма */
+    font-size: 1.15em;
+    line-height: 1.8;
+    color: #444;
+    margin-bottom: 20px;
+    text-indent: 30px;
+    /* Красная строка */
+}
+
+.letter-closing {
+    margin-top: 40px;
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-size: 1.2em;
+    line-height: 1.6;
+    color: #555;
+    text-align: right;
+}
+
+.letter-closing .signature {
+    font-family: 'Dancing Script', cursive;
+    /* Рукописный шрифт */
+    font-size: 1.8em;
+    color: var(--primary-pink);
+    display: block;
+    /* Подпись на новой строке */
+    margin-top: 10px;
+    font-weight: 700;
+}
+
+/* Обновленный футер */
+.footer {
+    margin-top: 20px;
+    /* Отступ сверху */
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1.6em;
+    color: var(--primary-pink);
+    font-weight: 700;
+}
+
+
+/* === Анимация Сердечек === */
+.heart-container {
+    position: fixed;
+    /* Фиксируем сердечки на экране */
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    pointer-events: none;
+    /* Сердечки не мешают взаимодействию */
+    z-index: 1;
+    /* Сердечки под контентом */
+}
+
+.heart {
+    position: absolute;
+    background-color: var(--secondary-pink);
+    /* Светло-розовые сердечки */
+    transform: rotate(-45deg);
+    animation: floatUp 8s infinite ease-in-out;
+    opacity: 0;
+}
+
+/* Для создания формы сердца используем псевдоэлементы, как это делает JS, но стилизуем здесь */
+/* JS динамически создает div для :before и :after, поэтому эти стили применятся к ним */
+.heart div:first-child {
+    /* Это будет :before */
+    top: -50%;
+    left: 0;
+}
+
+.heart div:last-child {
+    /* Это будет :after */
+    top: 0;
+    left: 50%;
+}
+
+
+/* Анимация движения сердечек */
+@keyframes floatUp {
+    0% {
+        transform: translateY(100vh) rotate(-45deg) scale(0);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 0.8;
+        transform: translateY(90vh) rotate(-45deg) scale(0.6);
+    }
+
+    80% {
+        opacity: 0.6;
+        transform: translateY(-20vh) rotate(-45deg) scale(1.2);
+    }
+
+    100% {
+        transform: translateY(-50vh) rotate(-45deg) scale(0.8);
+        opacity: 0;
+    }
+}
+
+/* === Адаптивность для мобильных устройств === */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+
+        /* Меньший отступ по краям на мобильных */
+    }
+
+    .content-wrapper {
+        padding: 15px 15px;
+        /* Меньший внутренний отступ */
+        margin: auto auto;
+        /* Меньший внешний отступ */
+        background-color: #ffffffc0;
+
+    }
+
+    .header h1 {
+        font-size: 2.5em;
+        /* Меньший размер заголовка */
+    }
+
+    .header .subtitle {
+        font-size: 1.1em;
+    }
+
+    .gallery {
+        grid-template-columns: 1fr;
+        /* Одна колонка на мобильных */
+        gap: 35px;
+        /* Меньший зазор */
+    }
+
+    .gallery-item img {
+        height: 80%;
+        /* Меньшая высота фото */
+    }
+
+    .letter {
+        margin: 30px auto;
+        /* Меньший отступ письма */
+        padding: 20px;
+    }
+
+    .letter-greeting {
+        font-size: 1.8em;
+        /* Меньший заголовок письма */
+    }
+
+    .letter-body p {
+        font-size: 1em;
+        /* Меньший шрифт текста письма */
+        text-indent: 20px;
+        /* Меньшая красная строка */
+    }
+
+    .letter-closing {
+        font-size: 1em;
+    }
+
+    .letter-closing .signature {
+        font-size: 1.5em;
+        /* Меньшая подпись */
+    }
+
+    .footer {
+        font-size: 1.2em;
+        /* Меньший футер */
+    }
+}
+
+@media (max-width: 480px) {
+    .header h1 {
+        font-size: 2em;
+    }
+
+    .header .subtitle {
+        font-size: 1em;
+    }
+
+    .letter-greeting {
+        font-size: 1.5em;
+    }
+}
